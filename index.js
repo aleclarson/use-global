@@ -29,5 +29,6 @@ function useGlobal(name) {
   throw err
 }
 
+useGlobal.roots = roots
 module.exports = useGlobal
 
