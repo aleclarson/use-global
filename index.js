@@ -3,6 +3,10 @@ let os = require('os')
 
 let roots = new Set(process.env.NODE_PATH.split(':').filter(path => !!path))
 roots.add(path.join(os.homedir(), '.node_modules'))
+try {
+  let cp = require('child_process')
+  roots.add(cp.execSync('npm root -g').toString().trim())
+} catch(e) {}
 roots = Array.from(roots)
 
 function useGlobal(name) {
