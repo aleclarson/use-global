@@ -1,4 +1,4 @@
-# use-global v0.0.2 
+# use-global v0.1.0 
 
 Tries to load the given module name by looking in:
 - `$NODE_PATH`
