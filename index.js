@@ -6,6 +6,9 @@ roots.add(path.join(os.homedir(), '.node_modules'))
 roots = Array.from(roots)
 
 function useGlobal(name) {
+  if (name[0] == '.' || name[0] == '/') {
+    throw Error('`name` cannot begin with . or /')
+  }
   for (let i = 0; i < roots.length; i++) {
     let file = path.join(roots[i], name)
     try {
